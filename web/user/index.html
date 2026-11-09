@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#f7f9f7">
+  <meta name="description" content="FLOW 流量自助服务，使用订阅 ID 查询账号并安全购买流量套餐。">
+  <title>FLOW · 流量自助服务</title>
+  <link rel="stylesheet" href="/assets/css/app.css?v=flow-mobile-20261109">
+</head>
+<body class="flow-page">
+  <div class="flow-shell">
+    <header class="flow-header">
+      <a class="flow-brand" href="/" aria-label="FLOW 流量自助服务首页">
+        <span class="flow-brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span class="flow-brand-name">FLOW<small>流量自助服务</small></span>
+      </a>
+      <div class="flow-header-actions">
+        <span class="flow-secure-label"><span aria-hidden="true">●</span> LINUX.DO CREDIT 安全支付</span>
+        <button id="history-orders" class="flow-switch-button flow-history-button" type="button" disabled>历史订单 <span aria-hidden="true">↗</span></button>
+        <button id="switch-account" class="flow-switch-button hidden" type="button">切换账号 <span aria-hidden="true">↗</span></button>
+      </div>
+    </header>
+
+    <main>
+      <nav class="flow-steps" aria-label="充值步骤">
+        <div class="flow-step flow-step-current"><span>01</span><div><b>查询账号</b><small>确认你的连接</small></div></div>
+        <i aria-hidden="true"></i>
+        <div class="flow-step"><span>02</span><div><b>选择套餐</b><small>找到适合的流量</small></div></div>
+        <i aria-hidden="true"></i>
+        <div class="flow-step"><span>03</span><div><b>完成充值</b><small>畅享自由连接</small></div></div>
+      </nav>
+
+      <section id="entry-panel" class="flow-query-card" aria-labelledby="query-title">
+        <div class="flow-query-heading">
+          <span class="flow-query-icon" aria-hidden="true">⌕</span>
+          <div><h2 id="query-title">使用订阅 ID 登录</h2><p>用同一个订阅 ID 查询或切换账号</p></div>
+        </div>
+        <form id="lookup-form" class="flow-query-form" autocomplete="off" novalidate>
+          <label class="flow-sr-only" for="subscription-id">订阅 ID</label>
+          <div class="flow-input-wrap">
+            <span aria-hidden="true">⌑</span>
+            <input id="subscription-id" name="subscriptionId" type="text" maxlength="256" placeholder="粘贴订阅 ID" required autocomplete="off" autocapitalize="none" spellcheck="false">
+          </div>
+          <button class="flow-primary-button" id="lookup-button" type="submit"><span aria-hidden="true">⌕</span><span>查询账号</span></button>
+        </form>
+      </section>
+      <div id="message" class="flow-message hidden" role="status" aria-live="polite"></div>
+
+      <section id="client-info" class="flow-workspace hidden" aria-live="polite"></section>
+    </main>
+
+    <footer class="flow-footer">
+      <span>每一份流量，都为更好的连接。</span>
+      <span><i></i> 付款由 LINUX.DO Credit 安全处理</span>
+    </footer>
+  </div>
+  <script type="module" src="/assets/js/user.js?v=flow-confirm-20261109"></script>
+</body>
+</html>

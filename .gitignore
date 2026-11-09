@@ -1,0 +1,13 @@
+.env
+.env.*
+!.env.example
+/data/*
+!/data/.gitkeep
+/recharge
+/recharge.exe
+/dist/
+/build/
+*.db
+*.db-shm
+*.db-wal
+*.backup

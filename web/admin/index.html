@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#f2f6fb">
+  <title>客户端重置管理</title>
+  <link rel="stylesheet" href="/assets/css/app.css">
+</head>
+<body class="admin-page">
+  <div id="login-view" class="login-wrap hidden">
+    <form id="login-form" class="login-card">
+      <div class="brand-mark">↗</div><div class="eyebrow">管理后台</div><h1>登录管理中心</h1>
+      <label class="field"><span>管理员账号</span><input name="username" autocomplete="username" required></label>
+      <label class="field"><span>密码</span><input name="password" type="password" autocomplete="current-password" required></label>
+      <button class="button primary full" type="submit">登录</button><div id="login-message" class="notice hidden"></div>
+    </form>
+  </div>
+  <div id="admin-app" class="admin-layout hidden">
+    <aside class="sidebar">
+      <div class="side-brand"><div class="brand-mark">↗</div><div><strong>重置管理中心</strong><small>3x-ui client reset</small></div></div>
+      <nav id="navigation" class="nav-list">
+        <button data-view="dashboard" class="nav-item active"><span>▦</span>仪表盘</button>
+        <button data-view="client-resets" class="nav-item"><span>↻</span>重置记录</button>
+        <button data-view="clients" class="nav-item"><span>◎</span>客户查询</button>
+        <button data-view="settings" class="nav-item"><span>⚙</span>系统设置</button>
+      </nav>
+      <div class="sidebar-bottom"><div class="admin-user"><span class="avatar">A</span><span id="admin-name">管理员</span></div><button id="logout-button" class="button subtle full">退出登录</button></div>
+    </aside>
+    <main class="admin-main">
+      <header class="topbar"><button id="menu-toggle" class="icon-button" aria-label="打开菜单">☰</button><div><div class="eyebrow">管理后台</div><h1 id="view-title">仪表盘</h1></div><div class="topbar-right"><span id="panel-pill" class="status-pill pending">面板状态检查中</span></div></header>
+      <div id="view-content" class="view-content"></div>
+    </main>
+  </div>
+  <div id="toast" class="toast hidden" role="status"></div>
+  <script type="module" src="/assets/js/admin.js"></script>
+</body>
+</html>

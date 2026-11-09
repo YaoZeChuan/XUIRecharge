@@ -1,0 +1,35 @@
+services:
+  recharge:
+    build: .
+    image: xui-recharge:local
+    container_name: xui-recharge
+    env_file:
+      - .env
+    environment:
+      APP_ENV: production
+      PANEL_MODE: real
+      SERVER_HOST: 0.0.0.0
+      SERVER_PORT: 8080
+      DATABASE_PATH: /app/data/recharge.db
+      CONFIG_FILE: /app/configs/config.example.yaml
+    ports:
+      - "127.0.0.1:8080:8080"
+    volumes:
+      - recharge-data:/app/data
+    restart: unless-stopped
+    read_only: true
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=32m
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q -O /dev/null http://127.0.0.1:8080/api/healthz || exit 1"]
+      interval: 30s
+      timeout: 5s
+      start_period: 15s
+      retries: 3
+
+volumes:
+  recharge-data:

@@ -1,0 +1,30 @@
+server:
+  host: "0.0.0.0"
+  port: 8080
+  timezone: "Asia/Shanghai"
+
+database:
+  path: "./data/recharge.db"
+
+panel:
+  mode: "real"
+  base_url: "https://panel.example.com"
+  api_token_env: "PANEL_API_TOKEN"
+  timeout_seconds: 10
+  tls_verify: true
+
+recharge:
+  allow_expired_renewal: true
+  max_days_per_order: 3650
+  max_traffic_gb_per_order: 10000
+
+ldc:
+  base_url: "https://credit.linux.do"
+  # Set PUBLIC_BASE_URL, LDC_CLIENT_ID, LDC_CLIENT_SECRET, and
+  # LDC_ED25519_PRIVATE_KEY as environment variables to enable official payments.
+  public_base_url: ""
+  poll_interval_seconds: 30
+
+security:
+  max_failed_attempts: 5
+  admin_session_hours: 12
